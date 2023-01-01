@@ -5,10 +5,11 @@ fn main() {
     const PW_LENGTH:usize = 32;
 
     // 文字種の定義
-    let alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let alphabets_u = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let apphabets_l = "abcdefghijklmnopqrstuvwxyz";
     let numbers = "0123456789";
     let symbols = "$=-_";
-    let char_grp_list = [alphabets, numbers, symbols];
+    let char_grp_list = [alphabets_u, apphabets_l, numbers, symbols];
 
     let mut rng = rand::thread_rng();
 
