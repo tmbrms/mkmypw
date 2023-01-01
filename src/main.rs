@@ -15,6 +15,8 @@ fn main() {
 
     loop {
         let pw = mkpw(&char_grp_list, PW_LENGTH, &mut rng);
+
+        // 使われている文字種が、定義されている文字種の数と同じであれば、すべて文字種が使われていると判断出来る
         if check_pw(&pw, &char_grp_list) == char_grp_list.len() {
             println!("{}", pw);
             break;
@@ -37,6 +39,7 @@ fn mkpw(char_grp_list: &[&str], length: usize, rng: &mut rand::rngs::ThreadRng) 
 }
 
 fn check_pw(s: &String, char_grp_list: &[&str]) -> usize {
+    // sに含まれる文字種の数を返す
     return char_grp_list.iter()
         .map(|char_grp| s.chars().any(|i| char_grp.find(i).is_some()))
         .filter(|i| *i).count();
